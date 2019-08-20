@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FORMULARIO</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: arial;
+            font-size: 13px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .wrapper {
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+
+            padding: 20px 0;
+        }
+
+        .form-row {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .form-celd {
+            width: 50%;
+            display: flex;
+        }
+
+        .form-celd:nth-child(even) {
+            padding-left: 10px;
+        }
+
+        .form-celd:nth-child(odd) {
+            padding-right: 10px;
+        }
+
+        .full-width .form-celd {
+            width: 100%;
+            padding: 0;
+        }
+
+        input,
+        select {
+            padding: 10px;
+            border: 1px solid #cdcdcd;
+            width: 100%;
+        }
+
+        button {
+            padding: 10px;
+            background: blue;
+            color: white;
+            border: 0;
+        }
+
+        label {
+            width: 100%;
+        }
+
+        select {
+            height: 35px;
+            min-width: 160px;
+        }
+
+        .button-primary {
+            background: green;
+            color: white;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper" id="wrapper">
+        <h1>Generador de HTML</h1>
+        <form action="">
+            <div class="form-row">
+                <div class="form-celd">
+                    <input class="js_inputAddLabel" type="text" placeholder="Crear Etiqueta" required>
+                    <button class="js_addLabel">Agregar</button>
+                </div>
+                <div class="form-celd">
+                    <select class="js_selectLabel" required>
+                        <option value="">SELECCIONA ETIQUETA</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-celd">
+                    <input type="text" placeholder="Agregar Texto" class="js_text">
+                    <button class="js_textBtn">Agregar</button>
+                </div>
+                <div class="form-celd">
+                    <select name="" id="" class="js_textSelect">
+                        <option value="">TEXTO</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-celd">
+                    <input class="js_inputIn" type="text" placeholder="Agregar en" required>
+                    <button class="js_buttonIn">Agregar</button>
+                </div>
+                <div class="form-celd">
+                    <select class="js_selectIn" required>
+                        <option value="">SELECCIONAR ETIQUETA</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row full-width">
+                <div class="form-celd">
+                    <input class="js_styles" type="text" placeholder="Styles" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <button class="button-primary" type="submit">ENVIAR</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // const form = document.querySelector('form');
+
+        // addLabel();
+        // addText();
+        // addIn();
+
+        // form.addEventListener('submit', function (e) {
+        //     e.preventDefault();
+        //     insert();
+        // })
+
+
+        // function addLabel() {
+        //     const js_addLabel = document.querySelector('.js_addLabel');
+        //     const js_inputAddLabel = document.querySelector('.js_inputAddLabel');
+
+        //     js_addLabel.addEventListener('click', function () {
+        //         addSelect(js_inputAddLabel.value, '.js_selectLabel');
+        //     })
+        // }
+
+        // function addText() {
+        //     const js_text = document.querySelector('.js_text');
+        //     const js_textBtn = document.querySelector('.js_textBtn');
+
+        //     js_textBtn.addEventListener('click', function () {
+        //         addSelect(js_text.value, '.js_textSelect');
+        //     })
+        // }
+
+        // function addSelect(value, element) {
+        //     let option = document.createElement('option');
+        //     option.value = value;
+        //     option.textContent = value;
+
+        //     let select = document.querySelector(element);
+
+        //     select.appendChild(option);
+        //     select.value = value;
+        // }
+
+        // function addIn() {
+        //     const js_inputIn = document.querySelector('.js_inputIn');
+        //     const js_buttonIn = document.querySelector('.js_buttonIn');
+
+        //     js_buttonIn.addEventListener('click', function () {
+        //         addSelect(js_inputIn.value, '.js_selectIn');
+        //     })
+        // }
+
+        // function insert() {
+        //     const select1 = document.querySelector('.js_selectLabel');
+        //     const select2 = document.querySelector('.js_textSelect');
+        //     const select3 = document.querySelector('.js_selectIn');
+        //     const js_styles = document.querySelector('.js_styles');
+
+        //     const label = document.createElement(select1.value);
+        //     label.textContent = select2.value;
+        //     label.setAttribute('style', js_styles.value);
+
+        //     document.querySelector(`${select3.value}`).appendChild(label);
+        // }
+
+        const js_inputAddLabel = document.querySelector('.js_inputAddLabel');
+        const js_addLabel = document.querySelector('.js_addLabel');
+        js_addLabel.addEventListener('click', function() {
+            let value = js_inputAddLabel.value;
+            let option = document.createElement('option');
+            option.value = value;
+            option.textContent = value;
+
+            document
+            .querySelector('.js_selectLabel')
+            .appendChild(option)
+        })
+
+
+        
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

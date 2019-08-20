@@ -1,20 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Javascript</title>
+    <link rel="stylesheet" href="./dom.js">
+
+    <style>
+        .div {
+            transition: all 1s ease;
+            opacity: 0;
+        }
+    </style>
 </head>
+
 <body>
-    <div id="ele">Element</div>
+    <main>
+        <button class="remover">AGREGAR</button>
+
+        <button class="quitar_evento">QUITAR EVENT</button>
+    </main>
+
+    <div>
+        <strong>hello</strong>
+    </div>
+
+    <a class="js_enlace" href="https://www.google.com">www.google.com</a>
+
+    <input type="text">
+
+
+    <form action="">
+
+        <input required type="text" placeholder="Nombre">
+        <input required type="text" placeholder="Apellido">
+
+        <button type="submit">Enviar</button>
+    </form>
+
 
     <script>
-        // document.querySelector('#ele').addEventListener('click', function() {
-        //     alert("hola")
-        // })
-    </script>
+        // const button = document.querySelector('button');
+        // let i = 0;
 
-    <script src="./main.js"></script>
+        // const colors = ['red', 'blue', 'pink', 'orange'];
+
+        // button.onclick = function () {
+        //    const div = document.querySelector('div');
+
+
+        //    div.classList.toggle("div");
+
+
+        //    setTimeout(function() {
+        //     div.remove();
+        //    }, 1500);
+
+        // }
+
+        const button = document.querySelector('button');
+
+        // button.onclick = function (event) {
+        //     console.log('e', event.target)
+        // }
+
+        // button.onmouseover = function (event) {
+        //     console.log('mouseover', event.target)
+        // }
+
+        document.querySelector('input').onkeypress = function (event) {
+            console.log('e', event)
+        }
+
+        function click1() {
+            console.log('click1');
+        }
+
+        function click2() {
+            console.log('click2');
+        }
+
+        button.addEventListener("click", click1);
+
+        button.addEventListener("click", click2)
+
+        
+        document.querySelector('.quitar_evento').addEventListener("click", function() {
+            button.removeEventListener("click", click1)
+        });
+        
+
+        document.querySelector('.js_enlace').addEventListener("click", function(event) {
+            event.preventDefault();
+            console.log('click');
+        })
+
+
+        document.querySelector('form').addEventListener('submit', function(e) {
+            let inputs = document.querySelectorAll('form input');
+
+            e.preventDefault();
+
+            console.log(inputs[0].value)
+            console.log(inputs[1].value)
+
+            fetch('miweb.com/form', {
+                nombre: inputs[0].value,
+                apellido : inputs[1].value
+            })
+        })
+
+
+    </script>
 </body>
+
 </html>

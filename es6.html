@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ES6</title>
+</head>
+
+<body>
+
+    <button>Click alumno!</button>
+
+    <script>
+        "use strict";
+
+        function Alumno(name = "sebastian", lastname = "yabiku") {
+            this.name = name;
+            this.lastname = lastname;
+
+            this.getData = function () {
+                return `hola soy ${this.name} y mi apellido es ${lastname}`
+            }
+
+            this.setData = function (value) {
+                this.name = value;
+            }
+        }
+
+        const alumno1 = new Alumno();
+        const alumno2 = new Alumno("Jose", "Perez");
+
+        document.querySelector('button')
+            .addEventListener('click', () => {
+                console.log(this)
+                console.log(alumno1.getData());
+                console.log(alumno2.getData());
+                alumno2.setData("Pedro")
+                console.log(alumno2.getData());
+            })
+
+
+    //     let person = {
+    //         name: "Nicholas",
+    //         sayName: function () {
+    //             console.log(this.name);
+    //         }
+    //     };
+        
+    //    person.sayName();
+
+    function ReturnObject(name = "sebastian", lastname = "yabiku") {
+        return {
+            name,
+            lastname,
+            getData() {
+                return `hola soy ${this.name} y mi apellido es ${this.lastname}`
+            },
+            setData(value) {
+                this.name = value;
+            }
+        }
+    }
+
+    let returnObject = ReturnObject("jose", "perez");
+
+    let returnObject2 = ReturnObject();
+
+
+
+    //OBJECT ASSING
+    let obj1 = {
+        name: 'sebastian',
+        lastname: 'yabiku'
+    }
+
+    let obj2 = {
+        age: 32,
+        hobbie: {
+            a : 'soccer'
+        },
+        name: 'Luis'
+    }
+
+    const allObject = Object.assign({},obj2, obj1);
+
+    obj1.name = "hector"
+
+    console.log('allObject', allObject)
+
+    // let obja = {
+    //     name: "luis"
+    // };
+
+    // let objb = obja;
+
+    // obja.name = "hector"
+
+    // console.log('objb', objb)
+    </script>
+</body>
+
+</html>
